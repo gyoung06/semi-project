@@ -9,8 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet("/admin/main")
-public class Admin_HomeController extends HttpServlet{
+@WebServlet("/admin/test")
+public class Admin_TestContoller extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String top= (String)req.getAttribute("top");//일단 받아봐 null이라도
@@ -29,7 +29,7 @@ public class Admin_HomeController extends HttpServlet{
 		ServletContext application = getServletContext();
 		application.setAttribute("cp", cp);
 		req.setAttribute("top", top); 
-		req.setAttribute("content", content);
+		req.setAttribute("content", "/admin/admin_content/test.jsp");
 		req.setAttribute("left", left);
 		req.getRequestDispatcher("/admin/admin_content/index.jsp").forward(req, resp);
 	}

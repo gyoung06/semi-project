@@ -16,6 +16,7 @@
 </div>
 <form method="post" action="${cp }/admin/memberlist">
 	검색할아이디:<input type="text" id="mid"><br>
+	<input type="button" value="검색">
 </form>
 </body>
 </html>

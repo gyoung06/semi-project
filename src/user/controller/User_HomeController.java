@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/user/home")
-public class HomeController extends HttpServlet{
+public class User_HomeController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String top=(String)req.getAttribute("top");
 		String content=(String)req.getAttribute("content");
 		String bottom=(String)req.getAttribute("bottom");
 		if(top==null) {
-			top="/header.jsp";
+			top="/user/user_content/header.jsp";
 		}
 		if(content==null) {
-			content="/home.jsp";
+			content="/user/user_content/main.jsp";
 		}
 		if(bottom==null) {
-			bottom="/footer.jsp";
+			bottom="/user/user_content/footer.jsp";
 		}
 		req.setAttribute("top", top);
 		req.setAttribute("content", content);
@@ -33,6 +33,6 @@ public class HomeController extends HttpServlet{
 		ServletContext application=getServletContext();
 		application.setAttribute("cp", cp);
 
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+		req.getRequestDispatcher("/user/user_content/index.jsp").forward(req, resp);
 	}
 }

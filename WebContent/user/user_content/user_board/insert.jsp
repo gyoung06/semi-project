@@ -11,11 +11,11 @@
 	이름*
 	<input type="text" name="mname"><br>
 	휴대전화*
-	<input type="text" name="mphone"><br>
+	<input type="tel" name="mphone"><br>
 	이메일*
 	<input type="email" name="memail"><br>
 	<h4>이용약관 동의</h4>
-	<div id="outbox1" >	
+	<div id="outbox1" style="width:800px; background-color:#F6F6F6; border:1px solid #D5D5D5">	
 	<textarea rows="10" cols="100" name="content1" >
 	제1조(목적)
 이 약관은 OO 회사(전자상거래 사업자)가 운영하는 OO 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리.의무 및 책임사항을 규정함을 목적으로 합니다.
@@ -180,13 +180,13 @@
 
 부 칙(시행일) 이 약관은 년 월 일부터 시행합니다.
 	</textarea>
-	<div id="inbox1" >
+	<div id="inbox1">
 이용약관에 동의하십니까?<input type="checkbox"> 동의함
 	</div>
 	</div>
 	
 	<h4>개인정보 수집 및 이용 동의</h4>
-	<div id="outbox2" >	
+	<div id="outbox2"  style="width:800px; background-color:#F6F6F6; border:1px solid #D5D5D5"  >	
 	<textarea rows="10" cols="100" name="content2" >
 
 1. 수집하는 개인정보 항목 및 이용목적

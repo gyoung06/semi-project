@@ -7,6 +7,6 @@
 <title>main.jsp</title>
 </head>
 <body>
-<h1>메인페이지...</h1>
+<h1 id = "main">메인페이지...</h1>
 </body>
 </html>

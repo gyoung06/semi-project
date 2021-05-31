@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!-- header.jsp -->
-<<style>
+<style>
 	#category{float:left; margin-right: 20px;}
 	#community{float:left; margin-right: 20px;}
 	#member{float:left; margin-right: 20px;}

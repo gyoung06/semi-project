@@ -1,23 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>goodsOrder</title>
-</head>
-<body>
-<form action="결제컨트롤러로 이동">
-	order
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+order
+<form action="${pageContext.request.contextPath }/payment">
 	<br>
 	허지영 님은, [FAMILY] 회원이십니다.
 	<br>
 	1,000 이상 구매시 1%을 추가적립 받으실 수 있습니다.
 	<br>
-	배송상품 주문내역
+	가용적립금: 1000원 &nbsp; 쿠폰:0개
 	<br>
-	<table border="2">
-		<tr>
+	주문할 상품 내역
+	<br>
+	<table class="table">
+		<tr class="active">
 			<th><input type="checkbox"></th>
 			<th>이미지</th>
 			<th>상품정보</th>
@@ -28,6 +27,7 @@
 			<th>배송비</th>
 			<th>합계</th>
 		</tr>
+	<c:forEach var="vo" items="${requestScope.list }">
 		<tr>
 			<td><input type="checkbox"></td>
 			<td>이미지</td>
@@ -39,6 +39,41 @@
 			<td>배송비</td>
 			<td>합계</td>
 		</tr>
+	</c:forEach>
+	</table>
+		<%--
+		<tr>
+			<td>${vo.num }</td>
+			<td>${vo.writer }</td>
+			<td>
+			<c:if test="${ vo.lev>0}">
+				<c:forEach var="i" begin="1" end ="${vo.lev }">
+					&nbsp;&nbsp;				
+				</c:forEach>
+				[re]
+			</c:if>
+			<a href = "detail?num=${vo.num }">${vo.title }</a></td>
+		</tr>
+		</table>
+		<!-- 페이징 처리 -->
+		<div>
+			<c:if test="${pageNum>10 }">
+				<a href="list?pageNum=${startPageNum-1 }">이전페이지</a>
+			</c:if>
+			<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
+				<c:choose>
+					<c:when test="${pageNum==i }">
+						<a href="list?pageNum=${i }"><span style="color:blue">[${i }]</span></a>
+					</c:when>
+					<c:otherwise>
+						<a href="list?pageNum=${i }"><span style="color:gray">[${i }]</span></a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${pageCount>endPageNum }">
+				<a href="$list?pageNum=${endPageNum+1 }">다음페이지</a>
+			</c:if>
+		</div>
 		<!-- 
 		<tr>
 			<td>[기본배송]</td>
@@ -46,10 +81,10 @@
 			<th>59,400</th>
 		</tr>
 		 -->
-	</table>
-	선택상품 <input type="button" value="삭제">
+	 --%>
+	선택상품 <input type="button" value="삭제" onclick="delete()">
 	<h4>주문정보</h4>
-	<table border="1">
+	<table class="table">
 		<tr>
 			<td>주문하시는분</td>
 			<td><input type="text"></td>
@@ -79,7 +114,7 @@
 		</tr>	
 	</table>
 	<h4>배송정보</h4>
-	<table border="1">
+	<table class="table">
 		<tr>
 			<td>배송지선택</td>
 			<td><input type="radio">주문자 정보와 동일 <input type="radio">새로운배송지<input type = "button" value="주소록 보기"></td>
@@ -111,7 +146,7 @@
 	</table>
 	<!-- 추가 정보 없애기?????????????????????? -->
 	<h4>결제 예정 금액</h4>
-	<table border="1">
+	<table class="table">
 		<tr>
 			<td>총 주문 금액<input type = "button" value="내역보기"></td>
 			<td>총 할인+부가결제 금액</td>
@@ -123,7 +158,7 @@
 			<th>=59,400</th>
 		</tr>	
 	</table>
-	<table border="1">
+	<table class="table">
 		<tr>
 			<th>총 할인금액</th>
 			<th>6,600</th>
@@ -152,7 +187,7 @@
 		</tr>	
 	</table>
 	<h4>결제</h4>
-	<table border="1">
+	<table class="table">
 		<tr><td colspan="2">최종결제금액</td></tr>
 		<tr><td colspan="2">59,400</td></tr>
 		<tr><td colspan="2"><input type="submit" value="결제하기"></td></tr>
@@ -221,5 +256,3 @@ WindowXP 서비스팩2를 설치하신후 결제가 정상적인 단계로 처�
 		현금영수증이나 세금계산서 중 하나만 발행 가능 합니다.
 	</li>
 </ul>
-</body>
-</html>

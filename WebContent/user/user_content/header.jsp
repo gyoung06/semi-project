@@ -37,8 +37,8 @@
 		<h3>member</h3>
 		login<br>
 		join+1000<br>
-		shopping cart<br>
-		order oist<br>
+		<a href="${cp }/user/user_content/user_board/cart.jsp">shopping cart</a><br>
+		<a href="${cp }/user/user_content/user_board/purchaseList.jsp">order list</a><br>
 		my shopping
 	</div>
 	<div id = "callbank">
